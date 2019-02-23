@@ -20,6 +20,7 @@ document.querySelector('.play-to-form').addEventListener('submit', function(even
     playTo = document.querySelector('#play-to').value;
     event.preventDefault();
     document.querySelector('.form').classList.add('blank');
+    document.querySelector('.score-to').textContent = playTo;
 });
 
 //Random number, 1-52
@@ -58,15 +59,39 @@ roundOver = () => {
 //Checking to see if the game is over
 gameOver = () => {
     if (score[1] >= playTo){
-        gameInit();
-        reset();
-        document.querySelector('.form').classList.remove('blank');
-        playTo = document.querySelector('#play-to').value = 10;
+        setTimeout(function(){
+            document.querySelector('.container').classList.add('blank');
+            document.querySelector('.body').classList.add('winner');
+            document.querySelector('.congrats').classList.remove('blank');
+            document.querySelector('.player-num').textContent = "1";
+        }, 350);
+        setTimeout(function(){
+            gameInit();
+            reset();
+            document.querySelector('.form').classList.remove('blank');
+            playTo = document.querySelector('#play-to').value = 10;
+            document.querySelector('.score-to').textContent = playTo;
+            document.querySelector('.container').classList.remove('blank');
+            document.querySelector('.body').classList.remove('winner');
+            document.querySelector('.congrats').classList.add('blank');
+        }, 3500);
     } else if (score[2] >= playTo){
-        gameInit();
-        reset();
-        document.querySelector('.form').classList.remove('blank');
-        playTo = document.querySelector('#play-to').value = 10;
+        setTimeout(function(){
+            document.querySelector('.container').classList.add('blank');
+            document.querySelector('.body').classList.add('winner');
+            document.querySelector('.congrats').classList.remove('blank');
+            document.querySelector('.player-num').textContent = "2";
+        }, 350);
+        setTimeout(function(){
+            gameInit();
+            reset();
+            document.querySelector('.form').classList.remove('blank');
+            playTo = document.querySelector('#play-to').value = 10;
+            document.querySelector('.score-to').textContent = playTo;
+            document.querySelector('.container').classList.remove('blank');
+            document.querySelector('.body').classList.remove('winner');
+            document.querySelector('.congrats').classList.add('blank');
+        }, 3500);
     }
 };
 
@@ -117,6 +142,7 @@ document.querySelector('.button').addEventListener('click', function(){
     activePlayer = 1;
     reset();
     playTo = document.querySelector('#play-to').value = 10;
+    document.querySelector('.score-to').textContent = playTo;
     document.querySelector('.form').classList.remove('blank');
 })
 

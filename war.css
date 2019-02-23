@@ -1,6 +1,7 @@
 #header {
     text-align: center;
     margin-top: 20px;
+    color: #cbd9ef;
 }
 
 .playarea {
@@ -15,6 +16,7 @@
 
 .players {
     text-align: center;
+    color: #cbd9ef;
 }
 
 .positive.ui.button {
@@ -74,4 +76,27 @@ label {
     font-size: 1.5rem;
     font-weight: bold;
     background: rgba(256, 256, 256, 0.5);
+}
+
+.objective {
+    text-align: center;
+    margin-top: 0.7rem;
+    color: #cbd9ef;
+}
+
+@media (max-width: 1035px){
+    .redo.icon {
+        display: none;
+    }
+}
+
+.winner {
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdIVj7BfUBnWTjagIq9Dd_LXNDWBMW6YEl-eutAdNaD8lvoB7t');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.congrats {
+    text-align: center;
 }
