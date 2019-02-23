@@ -5,23 +5,41 @@
 //First to the given point total wins, 1 point per round won.
 //Whoever wins the prior point gets to draw first.
 
-var score, activePlayer, card, cardImg1, cardImg2, playTo;
+/************************************
+ * HELPER FUNCTIONS/VARIABLE SET-UP
+ ************************************/
+
+var score, activePlayer, cardImg1, cardImg2, playTo;
 
 //score[0] is a placeholder for more intuitive classes
-score = [null, 0, 0]
+score = [null, 0, 0];
 activePlayer = 1;
 playTo = document.querySelector('#play-to').defaultValue = 10;
 
-document.querySelector('.player-1-score').textContent = score[1];
-document.querySelector('.player-2-score').textContent = score[2];
+//function to display the current score
+displayScore = () => {
+    document.querySelector('.player-1-score').textContent = score[1];
+    document.querySelector('.player-2-score').textContent = score[2];
+};
 
-//Changing score to 
+//Changing winning score
 document.querySelector('.play-to-form').addEventListener('submit', function(event){
     playTo = document.querySelector('#play-to').value;
     event.preventDefault();
     document.querySelector('.form').classList.add('blank');
     document.querySelector('.score-to').textContent = playTo;
 });
+
+//Player active class
+playerActive = () => {
+    if (activePlayer === 1){
+        document.querySelector('.playarea1').classList.add('active');
+        document.querySelector('.playarea2').classList.remove('active');
+    } else if (activePlayer === 2) {
+        document.querySelector('.playarea2').classList.add('active');
+        document.querySelector('.playarea1').classList.remove('active');
+    }
+};
 
 //Random number, 1-52
 cardNum = () => {
@@ -37,22 +55,24 @@ sameCard = () => {
         cardImg2 = cardNum();
         sameCard();
     }
-}
+};
 
 //Checking to see if the round is over
 roundOver = () => {
     if (cardImg1 > cardImg2 && cardImg1 && cardImg2){
         score[1] += 1;
+        activePlayer = 1;
         document.querySelector('.player-1-score').textContent = score[1];
         document.querySelector('.draw').classList.add('blank');
         setTimeout(gameInit, 1000);
-        activePlayer = 1;
+        setTimeout(playerActive, 1000);
     } else if (cardImg1 < cardImg2 && cardImg1 && cardImg2){
         score[2] += 1;
+        activePlayer = 2;
         document.querySelector('.player-2-score').textContent = score[2];
         document.querySelector('.draw').classList.add('blank');
         setTimeout(gameInit, 1000);
-        activePlayer = 2;
+        setTimeout(playerActive, 1000);
     }
 };
 
@@ -66,14 +86,14 @@ gameOver = () => {
             document.querySelector('.player-num').textContent = "1";
         }, 350);
         setTimeout(function(){
-            gameInit();
-            reset();
             document.querySelector('.form').classList.remove('blank');
             playTo = document.querySelector('#play-to').value = 10;
             document.querySelector('.score-to').textContent = playTo;
             document.querySelector('.container').classList.remove('blank');
             document.querySelector('.body').classList.remove('winner');
             document.querySelector('.congrats').classList.add('blank');
+            gameInit();
+            reset();
         }, 3500);
     } else if (score[2] >= playTo){
         setTimeout(function(){
@@ -83,14 +103,14 @@ gameOver = () => {
             document.querySelector('.player-num').textContent = "2";
         }, 350);
         setTimeout(function(){
-            gameInit();
-            reset();
             document.querySelector('.form').classList.remove('blank');
             playTo = document.querySelector('#play-to').value = 10;
             document.querySelector('.score-to').textContent = playTo;
             document.querySelector('.container').classList.remove('blank');
             document.querySelector('.body').classList.remove('winner');
             document.querySelector('.congrats').classList.add('blank');
+            gameInit();
+            reset();
         }, 3500);
     }
 };
@@ -102,15 +122,21 @@ gameInit = () => {
     document.querySelector('.player-1-card').src = './images/back.png';
     document.querySelector('.player-2-card').src = './images/back.png';
     document.querySelector('.draw').classList.remove('blank');
+    displayScore();
 };
 
 //Reset the game
 reset = () => {
     score[1] = 0;
     score[2] = 0;
-    document.querySelector('.player-1-score').textContent = score[1];
-    document.querySelector('.player-2-score').textContent = score[2];
-}
+    activePlayer = 1;
+    displayScore();
+    playerActive();
+};
+
+/******************************************
+ * GAMEPLAY
+ ******************************************/
 
 gameInit();
 
@@ -124,6 +150,9 @@ document.querySelector('.draw').addEventListener('click', function(){
         sameCard();
         document.querySelector('.player-1-card').src = `./images/crd-${cardImg1}.png`;
         activePlayer = 2;
+        if (!cardImg2){
+            playerActive();
+        };
         roundOver();
         gameOver();
     } else {
@@ -131,6 +160,9 @@ document.querySelector('.draw').addEventListener('click', function(){
         sameCard();
         document.querySelector('.player-2-card').src = `./images/crd-${cardImg2}.png`;
         activePlayer = 1;
+        if (!cardImg1){
+            playerActive();
+        };
         roundOver();
         gameOver();
     };
@@ -144,5 +176,5 @@ document.querySelector('.button').addEventListener('click', function(){
     playTo = document.querySelector('#play-to').value = 10;
     document.querySelector('.score-to').textContent = playTo;
     document.querySelector('.form').classList.remove('blank');
-})
+});
 
