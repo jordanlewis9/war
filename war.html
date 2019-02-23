@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>War Game</title>
+        <link rel="stylesheet" type="text/css" href="./war.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+        <!-- Card images from https://github.com/hayeah/playing-cards-assets -->
+    </head>
+    <body class="body">
+        <div class="container">
+            <h1 class="ui header" id="header">This...is...WAR!</h1>
+
+            <div class="ui three column centered grid">
+                <div class="twelve column centered row">
+
+                    <div class="five wide column playarea">
+                        <h2 class="players player-1">Player 1</h2>
+                        <img src='./images/back.png' class="player-1-card card">
+                        <div class="scoreboard">
+                            <h3>Round Points</h3>
+                            <p class="player-1-score scores">15</p>
+                        </div>
+                    </div>
+
+                    <div class="two wide column playarea">
+                        <div class="new-game">
+                            <button class="positive ui button">
+                                <i class="redo icon"></i>
+                                    New Game
+                            </button>
+                        </div>
+                        <div class="draw">
+                            <img src="./images/back.png" id="card">
+                        </div>
+                        <div class="ui form">
+                            <div class="field">
+                                <form class="play-to-form">
+                                    <label>Play to:</label>
+                                    <input type="text" id="play-to">
+                                    <button class="ui violet button">Enter</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="five wide column playarea">
+                        <h2 class="players player-2">Player 2</h2>
+                        <img src='./images/back.png' class="player-2-card card">
+                        <div class="scoreboard">
+                            <h3>Round Points</h3>
+                            <p class="player-2-score scores">14</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <script src="index.js"></script>
+    </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
