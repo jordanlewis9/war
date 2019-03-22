@@ -1,106 +1,110 @@
 #header {
-    text-align: center;
-    margin-top: 20px;
-    color: #cbd9ef;
+  text-align: center;
+  margin-top: 20px;
+  color: #cbd9ef;
 }
 
 .playarea {
-    background: rgba(256, 256, 0, 0.1);
-    border-radius: 5%;
-    height: 80vh;
+  background: rgba(256, 256, 256, 0.5);
+  border-radius: 5%;
+  height: 80vh;
 }
 
 .active {
-    border: 5px solid red;
+  border: 5px solid red;
 }
 
 .two.wide.column {
-    border-radius: 1%;
+  border-radius: 1%;
 }
 
 .players {
-    text-align: center;
-    color: #cbd9ef;
+  text-align: center;
+  color: #303030;
 }
 
 .positive.ui.button {
-    padding-right: 0.3rem;
-    padding-left: 0.3rem;
-    text-align: center;
+  padding-right: 0.3rem;
+  padding-left: 0.3rem;
+  text-align: center;
 }
 
 .new-game {
-    margin-top: 1rem;
-    text-align: center;
+  margin-top: 1rem;
+  text-align: center;
 }
 
 .draw {
-    text-align: center;
-    margin-top: 2rem;
+  text-align: center;
+  margin-top: 2rem;
 }
 
 #card {
-    border-radius: 5%;
-    width: 80%;
-    height: 80%;
+  border-radius: 5%;
+  width: 80%;
+  height: 80%;
 }
 
 .blank {
-    display: none;
+  display: none;
 }
 
-.body {
+/* .body {
     background-image: url("https://images.unsplash.com/photo-1470076892663-af684e5e15af?ixlib=rb-1.2.1&auto=format&fit=crop&w=617&q=80");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
+} */
+
+.body {
+  background-color: rgba(10, 10, 10, 0.9);
 }
 
 .card {
-    margin: auto 25%;
-    width: 50%;
-    height: 50%;
-    border-radius: 5%;
-    background: #fff;
+  margin: auto 25%;
+  width: 50%;
+  height: 50%;
+  border-radius: 5%;
+  background: #fff;
 }
 
 .scoreboard {
-    text-align: center;
-    margin: 2rem 25% auto 25%;
-    background: black;
-    color: white;
-    height: 20vh;
+  text-align: center;
+  margin: 2rem 25% auto 25%;
+  background: black;
+  color: white;
+  height: 20vh;
 }
 
 .scores {
-    font-size: 4rem;
+  font-size: 4rem;
 }
 
 label {
-    font-size: 1.5rem;
-    font-weight: bold;
-    background: rgba(256, 256, 256, 0.5);
+  font-size: 1.5rem;
+  font-weight: bold;
+  background: rgba(256, 256, 256, 0.5);
 }
 
 .objective {
-    text-align: center;
-    margin-top: 0.7rem;
-    color: #cbd9ef;
+  text-align: center;
+  margin-top: 0.7rem;
+  color: #cbd9ef;
 }
 
-@media (max-width: 1035px){
-    .redo.icon {
-        display: none;
-    }
+@media (max-width: 1035px) {
+  .redo.icon {
+    display: none;
+  }
 }
 
 .winner {
-    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdIVj7BfUBnWTjagIq9Dd_LXNDWBMW6YEl-eutAdNaD8lvoB7t');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center center;
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdIVj7BfUBnWTjagIq9Dd_LXNDWBMW6YEl-eutAdNaD8lvoB7t");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 .congrats {
-    text-align: center;
+  text-align: center;
 }

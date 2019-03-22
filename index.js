@@ -48,10 +48,10 @@ cardNum = () => {
 
 //If the random numbers are the same, run the number again and run the function again
 sameCard = () => {
-    if (cardImg1 === cardImg2){
+    if (cardImg1 === cardImg2 && activePlayer === 1){
         cardImg1 = cardNum();
         sameCard();
-    } else if (cardImg2 === cardImg1){
+    } else if (cardImg2 === cardImg1 && activePlayer === 2){
         cardImg2 = cardNum();
         sameCard();
     }
