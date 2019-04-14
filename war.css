@@ -49,13 +49,6 @@
   display: none;
 }
 
-/* .body {
-    background-image: url("https://images.unsplash.com/photo-1470076892663-af684e5e15af?ixlib=rb-1.2.1&auto=format&fit=crop&w=617&q=80");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-} */
-
 .body {
   background-color: rgba(10, 10, 10, 0.9);
 }
